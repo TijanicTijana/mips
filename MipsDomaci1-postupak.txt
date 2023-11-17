@@ -1,0 +1,24 @@
+
+Nacrtala sam semu u proteusu
+Koristeci :
+stm32f103c6 mikrokontoler
+Otpornik otpornosti 330 oma
+Ground
+Zelenu led diodu
+
+Odabrala sam B port jer u mom imenu i prezimenu ima vise suglasnika nego samoglasnika
+Pin 1 jer je ukupan broj slova u imanu i prezimenu po modulu 6 jednak 13%6=1
+
+U main.c file-u STM32CubeID sam definisala 2 globalne promenljive:
+#define BROJ_SLOVA_IME 6      //Tijana
+#define BROJ_SLOVA_PREZIME 7  //Tijanic
+
+U okvitu beskonacne while petlje postoje 2 for petlje
+
+U prvoj petlji koja se izvrasava BROJ_SLOVA_IME puta 
+sirina impulsa je BROJ_SLOVA_IME, a pauze BROJ_SLOVA_PREZIME
+Pa se dioda ukljucuje na 6 ms, iskljucuje na 7ms sve dok se ne izadje iz petlje
+
+Nakon cega se ulazi u drugu petlju koja se izvrsava BROJ_SLOVA_PREZIME puta
+sirina impulsa je BROJ_SLOVA_PREZIME, a pauze BROJ_SLOVA_IME
+Tj. dioda je ukljucena 7ms, a iskljucena 6ms.
